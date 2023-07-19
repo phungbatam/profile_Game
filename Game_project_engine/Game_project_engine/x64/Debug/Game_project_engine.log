@@ -1,0 +1,25 @@
+﻿  Main.cpp
+C:\Users\Super Coder\source\repos\Game_project_engine\Game_project_engine\ControlGame.h(62,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Super Coder\source\repos\Game_project_engine\Game_project_engine\ControlGame.h(63,16): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Super Coder\source\repos\Game_project_engine\Game_project_engine\Main.cpp(9,56): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+C:\Users\Super Coder\source\repos\Game_project_engine\Game_project_engine\Main.cpp(9,36): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  MoveFigure.h
+  MoveGame.cpp
+  Generating Code...
+  Game_project_engine.vcxproj -> C:\Users\Super Coder\source\repos\Game_project_engine\x64\Debug\Game_project_engine.exe
