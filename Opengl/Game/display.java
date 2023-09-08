@@ -18,11 +18,15 @@ public class display {
         
         JF_display.setTitle("2D Adventure");
 
+        JF_display.setSize(GamePanel.screenWidth, GamePanel.screenHeight);
+
         GamePanel game = new GamePanel();
         JF_display.add(game);
-        
+        // JF_display.addKeyListener(GamePanel);
+        JF_display.setResizable(false);
         JF_display.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JF_display.setLocationRelativeTo(null);
+        JF_display.setVisible(true);
         return JF_display;
     }
 
