@@ -18,8 +18,7 @@ import window.titleBar.Button;
 public class Main {
 
     private static boolean canProceed = true;
-
-    private static ImageIcon iconPeach_Blossom = new ImageIcon("D:\\NONE\\C++\\Opengl\\resource\\peach_blossom.png");
+    private static ImageIcon iconPeach_Blossom = new ImageIcon("A:\\Workspace\\Java\\Game\\Swing\\tutorial for Java 2D beginners\\src\\Assets\\resource\\peach_blossom.png");
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -93,13 +92,13 @@ public class Main {
                         });
 
                         minimize.setBounds(30, 0,30, 20);
-                        
+
                         // Button peach_blossom = new Button();
                         // peach_blossom.setFocusable(false);
                         // peach_blossom.setIcon(iconPeach_Blossom);
                         // peach_blossom.setBackground(Color.decode("#00000000"));
                         // peach_blossom.setBounds(60, 0, 30, 20);
-                         
+
 
                         Border emtyBorder = BorderFactory.createEmptyBorder();
                         close.setBorder(emtyBorder);
@@ -110,7 +109,7 @@ public class Main {
                         JPanel JP_Bar = new JPanel();
 
                         JLabel taskBar = new JLabel("",iconPeach_Blossom,JLabel.RIGHT);
-           
+
                         taskBar.setBounds(0, 0, 1280, 20);
                         taskBar.setOpaque(true);
                         taskBar.setBackground(new Color(0, 0, 0));
