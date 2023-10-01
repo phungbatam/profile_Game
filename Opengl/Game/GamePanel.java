@@ -1,5 +1,8 @@
 package Game;
 
+import Game.Entity.Player;
+import Game.Tile.TileManager;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -11,26 +14,31 @@ public class GamePanel extends JPanel implements Runnable {
 
     private boolean openGamePanel = true;
 
-    protected final static int originalTitleSize = 16;
-    protected final static int scale = 3;
+    // Screen Size
+    public final static int originalTitleSize = 16;
+    public final static int scale = 3;
+    public final static int titleSize = originalTitleSize * scale;
+    public final static int maxScreenCol = 16;
+    public final static int maxScreenRow = 12;
+    public final static int screenWidth = titleSize * maxScreenCol;
+    public final static int screenHeight = titleSize * maxScreenRow;
 
-    protected final static int titleSize = originalTitleSize * scale;
-    protected final static int maxScreenCol = 16;
-    protected final static int maxScreenRow = 12;
-    protected final static int screenWidth = titleSize * maxScreenCol;
-    protected final static int screenHeight = titleSize * maxScreenRow;
+    // World Size
+    public final static int maxWorldCol = 50;
+    public final static int maxWorldRow = 50;
+    public final int worldHeight = maxWorldRow * titleSize;
+    public final int worldWidth = maxWorldCol * titleSize;
 
     // FPS
     int FPS = 60;
 
+    TileManager tileM = new TileManager(this);
     static KeyHanld KeyH = new KeyHanld();
 
     Thread gameThread;
 
-    // Set Player is default position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
+    // class player
+    Player player = new Player(this, KeyH);
 
     public GamePanel() {
 
@@ -51,6 +59,7 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
+    // Run FPS
     @Override
     public void run() {
 
@@ -71,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable {
             try {
 
                 double remainingTime = nextDrawTime - System.nanoTime();
-                remainingTime = remainingTime / 10000000;
+                remainingTime = remainingTime / 100000000;
 
                 if (remainingTime < 0) {
                     remainingTime = 0;
@@ -86,27 +95,20 @@ public class GamePanel extends JPanel implements Runnable {
 
     }
 
+    // Update Key Hanld
     public void update() {
-        if (KeyH.upPressed == true) {
-            playerY -= playerSpeed;
-        } else if (KeyH.downPressed == true) {
-            playerY += playerSpeed;
-        } else if (KeyH.leftPressed == true) {
-            playerX -= playerSpeed;
-        } else if (KeyH.rightPressed == true) {
-            playerX += playerSpeed;
-        }
+        player.update();
     }
 
+    // Function paint Component
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.white);
-
-        g2.fillRect(playerX, playerY, titleSize, titleSize);
+        tileM.draw(g2);
+        player.draw(g2);
 
         g2.dispose();
 
